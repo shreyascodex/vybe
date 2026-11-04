@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Logo from './Logo'
-import StatusPill from './StatusPill'
 import { navLinks } from '../data/content'
 
 export default function Navbar() {
@@ -17,7 +16,7 @@ export default function Navbar() {
           <Logo />
         </a>
 
-        <ul className="hidden items-center gap-9 md:flex">
+        <ul className="hidden items-center gap-7 md:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
@@ -33,11 +32,16 @@ export default function Navbar() {
         <div className="hidden items-center gap-4 md:flex">
           <Link
             to="/app"
-            className="text-sm font-semibold text-ink underline decoration-volt decoration-2 underline-offset-4 transition-colors hover:decoration-ink"
+            className="text-sm font-semibold text-ink/70 underline decoration-ink/25 decoration-2 underline-offset-4 transition-colors hover:text-ink hover:decoration-ink"
           >
-            Preview the app
+            App demo
           </Link>
-          <StatusPill />
+          <a
+            href="#early-access"
+            className="inline-flex min-h-10 items-center rounded-full bg-ink px-5 text-sm font-semibold text-paper transition-colors hover:bg-volt hover:text-ink"
+          >
+            Get early access
+          </a>
         </div>
 
         <button
@@ -77,14 +81,20 @@ export default function Navbar() {
             ))}
           </ul>
           <div className="mt-5 flex flex-wrap items-center gap-4">
+            <a
+              href="#early-access"
+              onClick={() => setOpen(false)}
+              className="inline-flex min-h-11 items-center rounded-full bg-ink px-5 text-sm font-semibold text-paper"
+            >
+              Get early access
+            </a>
             <Link
               to="/app"
               onClick={() => setOpen(false)}
-              className="text-sm font-semibold underline decoration-volt decoration-2 underline-offset-4"
+              className="text-sm font-semibold underline decoration-ink/25 decoration-2 underline-offset-4"
             >
-              Preview the app
+              App demo
             </Link>
-            <StatusPill />
           </div>
         </div>
       )}

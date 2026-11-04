@@ -64,7 +64,7 @@ export function DemoProvider({ children }: { children: ReactNode }) {
       list.map((c) => (c.id === id ? { ...c, joined: true, participants: c.participants + 1 } : c)),
     )
     addActivity('join', 'You', `joined ${target.title}`)
-    notify(`You joined ${target.title}`)
+    notify(`Demo: you joined ${target.title} (not saved)`)
   }
 
   function createChallenge(input: NewChallengeInput): string {
@@ -82,7 +82,7 @@ export function DemoProvider({ children }: { children: ReactNode }) {
     }
     setChallenges((list) => [challenge, ...list])
     addActivity('create', 'You', `created ${input.title}`)
-    notify('Challenge created')
+    notify('Demo: challenge created (not saved)')
     return id
   }
 
@@ -100,7 +100,7 @@ export function DemoProvider({ children }: { children: ReactNode }) {
       setStreakDate(today)
     }
     addActivity('proof', 'You', `submitted proof in ${target.title}`)
-    notify('Check-in recorded')
+    notify('Demo: check-in recorded (not saved)')
   }
 
   const value: DemoContextValue = {

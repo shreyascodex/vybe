@@ -1,8 +1,9 @@
 interface StatusPillProps {
+  label?: string
   dark?: boolean
 }
 
-export default function StatusPill({ dark = false }: StatusPillProps) {
+export default function StatusPill({ label = 'Early build', dark = false }: StatusPillProps) {
   return (
     <span
       className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold ${
@@ -10,7 +11,7 @@ export default function StatusPill({ dark = false }: StatusPillProps) {
       }`}
     >
       <span className="size-2 rounded-full bg-flare" aria-hidden="true" />
-      Early access soon
+      {label}
     </span>
   )
 }

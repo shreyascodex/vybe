@@ -5,6 +5,9 @@ import HowItWorks from '../components/HowItWorks'
 import Features from '../components/Features'
 import Compare from '../components/Compare'
 import Faq from '../components/Faq'
+import Fairness from '../components/Fairness'
+import StatusBoard from '../components/StatusBoard'
+import Trust from '../components/Trust'
 import Footer from '../components/Footer'
 
 export default function Landing() {
@@ -17,9 +20,12 @@ export default function Landing() {
       <Navbar />
       <main>
         <Hero />
+        <StatusBoard />
         <HowItWorks />
         <Features />
+        <Fairness />
         <Compare />
+        <Trust />
         <Faq />
       </main>
       <Footer />

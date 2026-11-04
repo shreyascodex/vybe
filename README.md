@@ -92,6 +92,19 @@ If PowerShell blocks `npm` with a script-execution error, run this once and try 
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 ```
 
+## Early-access signup
+
+The landing page has an email form. It posts `{ "email": "...", "source": "vybe-landing" }` as JSON to a
+URL you provide. It does not store anything itself.
+
+1. Create a form or email list with a service that accepts a JSON POST (for example Formspree or Buttondown).
+2. Copy `.env.example` to `.env.local` and set `VITE_EARLY_ACCESS_ENDPOINT` to that URL.
+3. Restart `npm run dev`. Set the same variable in your hosting provider before deploying.
+
+Until the variable is set, the form tells visitors that signup is not connected and does not pretend to
+save their email. Emails are stored by the service you choose, so make sure the privacy wording on the
+landing page matches how you actually handle them.
+
 ## Routes
 
 | Route | Screen |
