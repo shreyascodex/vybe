@@ -24,7 +24,7 @@ Every group chat has one: *"I bet I can wake up at 6 every day for a week."* The
 
 VYBE is a web app that finishes the challenge your friends start. You create a challenge, invite your group with one link, check in daily with proof, and when the season ends VYBE settles the score with a shareable result card.
 
-> **Where we are:** this repository currently holds the **frontend foundation**: the VYBE landing page. There is no authentication, database or backend yet, and nothing on the page pretends otherwise.
+> **Where we are:** this repository holds the VYBE landing page and a **frontend-only application preview**. There is no authentication, database or backend yet. The app screens run on clearly labelled sample data held in browser memory, and a refresh resets it.
 
 ## What's built so far
 
@@ -33,6 +33,8 @@ VYBE is a web app that finishes the challenge your friends start. You create a c
 - [x] Responsive landing page: navigation, hero, how it works, features, comparison, FAQ, footer
 - [x] Mobile menu, smooth anchor scrolling, keyboard focus styles
 - [x] Respects the "reduce motion" accessibility setting
+- [x] Application preview with routing (React Router): dashboard, explore, my challenges, create challenge, challenge detail with check-in form, and profile
+- [x] Local demo state: joining, creating, searching, filtering and checking in all work in the browser (nothing is saved)
 
 ## What we are building
 
@@ -53,6 +55,7 @@ These are planned, not shipped. The landing page labels them the same way.
 |---|---|
 | UI | React 19 + TypeScript |
 | Build tool | Vite 7 |
+| Routing | React Router 7 |
 | Styling | Tailwind CSS v4 (via `@tailwindcss/vite`) |
 | Fonts | Bricolage Grotesque and Instrument Sans (Google Fonts) |
 
@@ -88,6 +91,20 @@ If PowerShell blocks `npm` with a script-execution error, run this once and try 
 ```powershell
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 ```
+
+## Routes
+
+| Route | Screen |
+|---|---|
+| `/` | Marketing landing page |
+| `/app` | Dashboard |
+| `/app/explore` | Explore public challenges (search and category filters) |
+| `/app/challenges` | My challenges (active, completed, created) |
+| `/app/challenges/create` | Create challenge |
+| `/app/challenges/:id` | Challenge detail, check-in and leaderboard |
+| `/app/profile` | Profile and challenge receipts |
+
+All data behind `/app` is sample data from `src/data/mock.ts`.
 
 ## Project structure
 
@@ -136,10 +153,10 @@ Change a value there and the whole site updates. To edit wording, change `src/da
 
 This is the intended direction. Each stage ships only when it works for real.
 
-- [x] **Done:** frontend foundation and landing page
+- [x] **Done:** frontend foundation, landing page and application preview (demo data)
 - [ ] **Next:** authentication (email magic link and Google) and the database
-- [ ] **Then:** create a challenge, invite by link, join
-- [ ] **Then:** daily check-ins, leaderboard, XP and streaks
+- [ ] **Then:** replace demo state with real challenges, invites and check-ins
+- [ ] **Then:** server-side scoring, leaderboard, XP and streaks
 - [ ] **Then:** photo proof, peer flagging, moderation
 - [ ] **Then:** the Challenge Receipt, forfeits, seasons, reminders
 - [ ] **Later:** private beta with real friend groups

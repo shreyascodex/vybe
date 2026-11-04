@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import Logo from './Logo'
 import StatusPill from './StatusPill'
 import { navLinks } from '../data/content'
@@ -29,7 +30,13 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden md:block">
+        <div className="hidden items-center gap-4 md:flex">
+          <Link
+            to="/app"
+            className="text-sm font-semibold text-ink underline decoration-volt decoration-2 underline-offset-4 transition-colors hover:decoration-ink"
+          >
+            Preview the app
+          </Link>
           <StatusPill />
         </div>
 
@@ -69,7 +76,14 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-          <div className="mt-5">
+          <div className="mt-5 flex flex-wrap items-center gap-4">
+            <Link
+              to="/app"
+              onClick={() => setOpen(false)}
+              className="text-sm font-semibold underline decoration-volt decoration-2 underline-offset-4"
+            >
+              Preview the app
+            </Link>
             <StatusPill />
           </div>
         </div>
